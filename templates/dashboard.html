@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block main %}
+
+<h1 class="role-title">{{ role }}</h1>
+
+<p class="summary">
+    Total projects completed: <strong>{{ projects }}</strong>
+</p>
+
+<div class="dashboard">
+
+    <!-- Frontend -->
+    <section class="skill-section">
+        <h2>Frontend</h2>
+
+        {% for skill in skills %}
+            {% if skill.category == "frontend" %}
+                <div class="skill-card">
+                    <span class="skill-name">{{ skill.name }}</span>
+                    <span class="skill-level">Level {{ skill.level }}</span>
+                    <span class="skill-label">
+                        {% if skill.level <= 5 %}
+                            Beginner
+                        {% elif skill.level <= 10 %}
+                            Intermediate
+                        {% else %}
+                            Advanced
+                        {% endif %}
+                    </span>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </section>
+
+    <!-- Backend -->
+    <section class="skill-section">
+        <h2>Backend</h2>
+
+        {% for skill in skills %}
+            {% if skill.category == "backend" %}
+                <div class="skill-card">
+                    <span class="skill-name">{{ skill.name }}</span>
+                    <span class="skill-level">Level {{ skill.level }}</span>
+                    <span class="skill-label">
+                        {% if skill.level <= 5 %}
+                            Beginner
+                        {% elif skill.level <= 10 %}
+                            Intermediate
+                        {% else %}
+                            Advanced
+                        {% endif %}
+                    </span>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </section>
+
+</div>
+
+{% endblock %}
