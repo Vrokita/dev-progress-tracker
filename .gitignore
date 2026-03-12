@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+
+flask_session/
+
+progress.db
+
+venv/
+.env
+
+.vscode/
