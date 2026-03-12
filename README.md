@@ -3,7 +3,6 @@ Dev Progress Tracker
 Video Demo: https://youtu.be/FNJ8juKOoJg
 
 ⸻
-s
 Description
 
 Dev Progress Tracker is a web application that allows users to track their learning progress while studying programming and computer science topics.
@@ -49,7 +48,10 @@ Project-Based Progress Tracking
 
 Users do not manually increase skill counters. Instead, they submit completed projects and explicitly select the skills used in each project. A single project can be associated with multiple skills (for example, HTML, CSS, and JavaScript).
 
-The application stores the relationship between projects and skills in the database. Skill progression is calculated dynamically by counting how many projects reference each skill. This approach avoids inconsistencies and ensures accurate tracking even if projects are later edited or removed.
+The application tracks skill progression based on the tools selected when submitting a project. 
+When a user logs a new project, the selected tools are recorded and the corresponding skill levels are updated in the database. If the skill already exists for the user, its level is increased. Otherwise, a new skill entry is created.
+
+This approach allows the application to gradually build a picture of the user's experience based on completed work.
 
 ⸻
 
@@ -71,9 +73,7 @@ The application uses SQLite and consists of the following tables:
 	•	projects
 	•	Stores user-submitted projects and metadata
 	•	skills
-	•	Stores available programming languages and tools
-	•	project_skills
-	•	Junction table linking projects to skills (many-to-many relationship)
+	•	Stores programming languages or tools associated with each user, along with a skill level that increases as the user logs projects using that tool.
 
 This database structure allows a single project to contribute to multiple skills and keeps the system flexible and scalable.
 
@@ -83,7 +83,7 @@ File Structure
     │
     ├── app.py               # Main Flask application
     ├── helpers.py           # Helper functions and reusable logic
-    ├── database.db          # SQLite database
+    ├── progress.db          # SQLite database
     ├── requirements.txt     # Python dependencies
     ├── README.md            # Project documentation
     │
@@ -96,8 +96,7 @@ File Structure
     │   └── history.html
     │
     └── static/
-        ├── styles.css        # CSS styling
-        └── script.js         # Optional JavaScript
+        └── styles.css        # CSS styling
 
 Technologies Used
 
