@@ -162,11 +162,6 @@ h2 {
   background: rgba(148, 163, 184, 0.08);
 }
 
-/* Optional: make Beginner/Intermediate/Advanced visually distinct without changing your HTML */
-.skill-label {
-  /* keep default styling; use subtle glow based on level with attribute-free trick */
-}
-
 /* ---------- Forms ---------- */
 .project-form,
 .auth-form {
