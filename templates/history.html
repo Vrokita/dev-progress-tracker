@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}Project History{% endblock %}
+
+{% block main %}
+
+<h1>Project History</h1>
+
+{% if projects %}
+    <div class="history-list">
+        {% for project in projects %}
+            <div class="history-card">
+                <h3>{{ project.title }}</h3>
+                <p class="history-date">
+                    {{ project.created_at }}
+                </p>
+                <p>{{ project.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No projects yet. Start by adding one!</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}Add Project{% endblock %}
+
+{% block main %}
+
+<h1>Add New Project</h1>
+
+<form action="/add_project" method="post" class="project-form">
+
+    <label for="title">Project Title</label>
+    <input type="text" name="title" id="title" required>
+
+    <label for="description">Project Description</label>
+    <textarea name="description" id="description" rows="4" required></textarea>
+
+    <fieldset>
+        <legend>Languages & Tools Used</legend>
+
+        <!-- Frontend -->
+        <strong>Frontend</strong><br>
+        <label><input type="checkbox" name="tools" value="HTML"> HTML</label>
+        <label><input type="checkbox" name="tools" value="CSS"> CSS</label>
+        <label><input type="checkbox" name="tools" value="JavaScript"> JavaScript</label>
+
+        <br><br>
+
+        <!-- Backend -->
+        <strong>Backend</strong><br>
+        <label><input type="checkbox" name="tools" value="Python"> Python</label>
+        <label><input type="checkbox" name="tools" value="Flask"> Flask</label>
+        <label><input type="checkbox" name="tools" value="SQL"> SQL</label>
+    </fieldset>
+
+    <button type="submit">Add Project</button>
+
+</form>
+
+{% endblock %}
